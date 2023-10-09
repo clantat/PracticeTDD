@@ -12,6 +12,6 @@ class MainViewModel(private val liveData: MyObservable<String>) {
     }
 
     fun notifyChanges() {
-        liveData.notifyChanges(count.toString())
+        liveData.notifyChanges()
     }
 }
