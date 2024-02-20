@@ -1,13 +1,32 @@
 package com.github.johnnysc.practicetdd
 
 class TwoFieldsObservable(private val observer: TwoFieldsObjectObserver) : Observable {
-    override fun accept(id: Int) {
-        TODO("Not yet implemented")
+    companion object {
+        val obj = Object()
     }
 
-    override fun accept(name: String) {
-        TODO("Not yet implemented")
-    }
+    private var name = ""
+    private var id = -1
+    override fun accept(id: Int) =
+        synchronized(obj) {
+            this.id = id
+            if (this.name != "") {
+                observer.notify(TwoFieldsObject(this.name, this.id))
+                this.name = ""
+                this.id = -1
+            }
+        }
+
+    override fun accept(name: String) =
+        synchronized(obj) {
+            this.name = name
+            if (this.id != -1) {
+                observer.notify(TwoFieldsObject(this.name, this.id))
+                this.name = ""
+                this.id = -1
+            }
+        }
+
 
 }
 
