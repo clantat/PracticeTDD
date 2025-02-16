@@ -47,7 +47,7 @@ task/018-observer-limited патерн обсервер с максимальн�
 
 task/019-observer-different-types патерн обсервер с 2 типами (обычный и премиум) как подписчиков так и контента (рекомендуется решить 17 и 18 прежде)
 
-task-020/chain-responsibility паттерн цепочка обязанностей в классическом виде (из проекта ЕСР https://youtu.be/gf-MIZIwm2E)
+task/020-chain-responsibility паттерн цепочка обязанностей в классическом виде (из проекта ЕСР https://youtu.be/gf-MIZIwm2E)
 
 task/021-interactor-parser непростая задача на взаимосвязь парсера с интерактором (из проекта ЕСР https://youtu.be/gf-MIZIwm2E)
 
@@ -80,4 +80,22 @@ task/034-revive-view-model вьюмодель которая умеет пере
 task/035-codegen-part-one кодогенератор: пишем код, который будет генерировать код после юнит тестов (https://youtu.be/rA-au9yJ7cc)
 
 task/036-multithreading-observer многопоточный обсервер патерн : 2 входа 1 выход (https://youtu.be/znEFXrT82vs)
+
+task/037-login-view-model пишем вьюмодель на логин (https://youtu.be/L9Dt5ERXf-E https://youtu.be/UFQUnyBKJMI)
+
+task/038-login-view-model-chain цепочка обязанностей в логин вьюмодель из задачи 37 (https://youtu.be/QXwggW1FNcY)
+
+task/039-mediator mediator pattern (https://youtu.be/Apf8bj4lIfk)
+
+task/040-mediator-ui-test mediator pattern 2 tests: ui test and unit test (https://youtu.be/_CGXMoaBl_0)
+
+task/041-comparable diffutil list item to compare (https://youtu.be/DuVVnBbI4qw)
+
+task/042-multithreading-coroutines run multiple coroutines in repository (https://youtu.be/5vwoqElj0bc)
+
+task/043-repository-test CloudFirst and CacheFirst repository tests (https://youtu.be/mVm6UW8vu-w)
+
+task/044-login_interactor-test Max attempts logic https://youtu.be/g5bRENIa9yw
+
+task/045-state-pattern State Pattern TDD https://youtu.be/TkfzrP733qk
 
