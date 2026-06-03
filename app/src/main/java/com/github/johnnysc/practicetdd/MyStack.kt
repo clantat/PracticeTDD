@@ -4,49 +4,62 @@ interface MyStack<T> {
     fun pop(): T
     fun push(item: T)
     class FIFO<T>(private val maxCount: Int) : MyStack<T> {
-        private val list: ArrayList<T> = arrayListOf()
 
         init {
             if (maxCount < 1)
                 throw IllegalStateException()
         }
 
+        private val array: Array<Any?> = arrayOfNulls(maxCount)
+        private var head = 0
+        private var tail = 0
+        private var size = 0
+
+
         override fun pop(): T {
-            if (list.isEmpty())
+            if (size == 0)
                 throw IllegalStateException()
-            val item = list.first()
-            list.remove(item)
+            val item = array[head] as T
+            array[head] = null
+            head = (head + 1) % maxCount
+            size--
             return item
         }
 
         override fun push(item: T) {
-            if (list.size == maxCount)
+            if (size == maxCount)
                 throw IllegalStateException("Stack overflow exception, maximum is $maxCount")
-            list.add(item)
+            array[tail] = item
+            tail = (tail + 1) % maxCount
+            size++
         }
 
     }
 
     class LIFO<T>(private val maxCount: Int) : MyStack<T> {
-        private val list: ArrayList<T> = arrayListOf()
 
         init {
             if (maxCount < 1)
                 throw IllegalStateException()
         }
 
+        private val array: Array<Any?> = arrayOfNulls(maxCount)
+        private var size = 0
+
         override fun pop(): T {
-            if (list.isEmpty())
+            if (size == 0)
                 throw IllegalStateException()
-            val item = list.last()
-            list.remove(item)
+            size--
+            val item = array[size] as T
+            array[size] = null
             return item
         }
 
         override fun push(item: T) {
-            if (list.size == maxCount)
+            if (size == maxCount)
                 throw IllegalStateException("Stack overflow exception, maximum is $maxCount")
-            list.add(item)
+            array[size] = item
+            size++
         }
 
     }
